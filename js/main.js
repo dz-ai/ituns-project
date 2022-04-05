@@ -11,7 +11,7 @@ function onLoad () {
 function elCreator(item) {
     if (!!item.trackName || !!item.primaryGenreName) {
         const template = `<div class="display-box">
-            <img src="${item.artworkUrl30 || item.artworkUrl60}" alt="artwork cover">
+            <img src="${item.artworkUrl60}" alt="artwork cover">
                 <h3>${item.trackName || item.primaryGenreName}</h3>
                 <audio controls src="${item.previewUrl}"></audio>
         </div> `
@@ -21,22 +21,18 @@ function elCreator(item) {
 
 function onClicked () {
     $result_list_1.css('display','block' )
-    $result_list_1.html('');
-    fetch(` https://itunes.apple.com/search?term=${$input.val()}&media=${$selector.val()}`).
-    then(response => {
-        response
-            .json()
+    $result_list_1.empty();
+    fetch(` https://itunes.apple.com/search?term=${$input.val()}&media=${$selector.val()}`)
+            .then(response => response.json())
             .then(data => {
-                const chooseResult =  data
+                data
                     .results
                     .map((res) => {
                         console.log(res)
                         $result_list_1.append(elCreator(res))
                     });
 
-            });
-    })
+            })
 }
-
 
 

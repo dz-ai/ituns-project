@@ -140,12 +140,12 @@ input[type="button"]:active {
 div#result_list {
     height: 100%;
     overflow-y: scroll;
-    display: none;
-}
+    
+width: 70%;}
 
 img {
     margin-right: 13px;
-    width: 11%;
+    
     border-radius: 7px;
 }
 
@@ -158,7 +158,7 @@ audio {
     align-items: center;
     border: 4px double gray;
     border-radius: 27px;
-    justify-content: center;
+    justify-content: space-around;
     padding: 10px;
     height: unset;
     margin-bottom: 10px;
